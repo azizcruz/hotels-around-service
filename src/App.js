@@ -1,20 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+// Components Imports
+import Header from './components/Header/Header'
+import SearchForm from './components/SearchForm/SearchForm'
+import MapContainer from './components/MapContainer/MapContainer'
+import Footer from './components/Footer/Footer'
+
 
 function App() {
   return (
     <div className="App">
-      <header>
-        
-      </header>
+      <Header />
       <main>
-        <section></section>
-        <section></section>
+        <SearchForm />
+        <MapContainer />
       </main>
-      <footer>
-          <h3>Limehome nearest hotel</h3>
-      </footer>
+      <Footer />
     </div>
   );
 }
