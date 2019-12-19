@@ -1,32 +1,67 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
+  flex-flow: column
+}
+
+.App > header {
+  background-color: #EEE;
+  max-width: 100%;
+  min-height: 10vh;
+  max-height: 10vh;
+  display: flex;
+  flex-direction: row;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App > main {
+    min-height: 80vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap
 }
+
+.App > main section {
+  padding: 10px;
+  border: 1px solid #EEE;
+  min-height: 100%;
+}
+
+.App > main section:nth-child(1) {
+  flex: 0 1 25%;
+}
+
+.App > main section:nth-child(2) {
+  flex: 0 1 75%;
+}
+
+.App > footer {
+  min-height: 10vh;
+  background-color: #EEE;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+
 
 @keyframes App-logo-spin {
   from {
