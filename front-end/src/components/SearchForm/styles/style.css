@@ -1,0 +1,46 @@
+form {
+    display: flex;
+    flex-flow: column;
+}
+.lime-form-control {
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+.lime-form-control > label {
+    font-size: 14px;
+    margin: 0 auto 8px;
+    display: block;
+    color: #757575;
+}
+
+.lime-form-control > input[type='text'] {
+    padding: 3px;
+    font-size: 14px;
+    width: 100%;
+}
+
+button {
+    flex: 0 1 auto;
+    display: block;
+    margin: 10px 50px;
+    border-radius: 0;
+    padding: 10px;
+    font-size: 14px;
+    border: 0;
+    background: #424242;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+h3 {
+    text-align: center;
+}
+
+button:active {
+    background: #757575;
+}
+
+button:focus {
+    outline: none;
+}

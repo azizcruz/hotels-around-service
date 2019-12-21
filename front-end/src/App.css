@@ -1,26 +1,46 @@
 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 .App {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column;
-  flex-flow: column
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column
 }
 
 .App > header {
-  background-color: #EEE;
-  max-width: 100%;
-  min-height: 10vh;
-  max-height: 10vh;
-  display: flex;
-  flex-direction: row;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #EEE;
+    max-width: 100%;
+    min-height: 10vh;
+    max-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.App > header div {
+    padding: 10px;
+}
+
+.App > header div a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #454545;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.App > header div a:active {
+    background-color: #757575;
 }
 
 .App > main {
@@ -30,34 +50,59 @@
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap
 }
 
 .App > main section {
-  padding: 10px;
-  border: 1px solid #EEE;
-  min-height: 100%;
+    padding: 10px;
+    border: 1px solid #EEE;
+    min-height: 100%;
 }
 
 .App > main section:nth-child(1) {
-  flex: 0 1 25%;
+    flex: 0 1 25%;
 }
 
 .App > main section:nth-child(2) {
-  flex: 0 1 75%;
+    flex: 0 1 75%;
 }
 
 .App > footer {
-  min-height: 10vh;
-  background-color: #EEE;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center
+    min-height: 10vh;
+    background-color: #EEE;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
 }
+
+/*Responsive Design Control*/
+@media screen and (max-width: 992px) {
+    .App > main section:nth-child(1) {
+        flex: 1 0 100%;
+    }
+
+    .App > main section:nth-child(2) {
+        flex: 1 0 100%;
+    }
+
+    .App > header div a {
+        font-size: 10px;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+    .App > header div a {
+        font-size: 8px;
+    }
+
+}
+
