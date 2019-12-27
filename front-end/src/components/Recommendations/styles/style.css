@@ -1,0 +1,11 @@
+.lime-home-recommendations {
+    display: flex;
+    flex-direction: column;
+}
+
+.lime-home-recommendations .lh-card {
+    padding: 10px;
+    background-color: #EEEEEE;
+    color: #454545;
+
+}

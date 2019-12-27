@@ -4,9 +4,15 @@ import './index.css';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import configureStore from './store';
 
-ReactDOM.render(<Router>
-        <App/>
+
+ReactDOM.render(
+    <Router>
+        <Provider store={configureStore()}>
+            <App/>
+        </Provider>
     </Router>,
     document.getElementById('root'));
 

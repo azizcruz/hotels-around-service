@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import GetLocation
+from .views import GetUserLocation, GetHotelsAroundLocation
 urlpatterns = [
-    path('location/get', GetLocation.as_view())
+    path('user_location/get', GetUserLocation.as_view()),
+    path('hotels_around/get/<str:geolocation>/<int:radius>', GetHotelsAroundLocation.as_view())
 ]
