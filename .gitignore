@@ -124,4 +124,5 @@ local_settings.py
 .env
 db.sqlite3
 
-virtualenv
+./backend/virtualenv/
+.gitignore
