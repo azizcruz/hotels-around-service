@@ -1,0 +1,32 @@
+.lime-home-recommendations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 75vh;
+    overflow: scroll;
+}
+
+.lime-home-recommendations .lh-card {
+    padding: 5px;
+    background-color: #EEEEEE;
+    color: #454545;
+    flex: 0 1 32%;
+    text-align: center;
+    margin: 4px;
+}
+
+@media screen and (max-width: 767px) {
+
+    .lime-home-recommendations .lh-card {
+        flex: 0 1 48%;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+    .lime-home-recommendations .lh-card {
+        flex: 1 1 98%;
+    }
+
+}

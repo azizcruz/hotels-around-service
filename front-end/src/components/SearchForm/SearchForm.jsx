@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './styles/style.css'
 import {connect} from 'react-redux';
-import {getHotelsAround, getLocation} from "../../actions/api_actions";
+import {getHotelsAround, getHotelsAroundBasedOnLocation, getLocation} from "../../actions/api_actions";
 
 
 class SearchForm extends Component {
@@ -12,11 +12,9 @@ class SearchForm extends Component {
             radius: 500,
             formattedAddress: '',
             currentLat: '',
-            currentLong: ''
-        }
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
+            currentLong: '',
+            lastSearches: sessionStorage.getItem('lastSearches') ? JSON.parse(sessionStorage.getItem('lastSearches')) : []
+        };
 
     }
 
@@ -26,23 +24,40 @@ class SearchForm extends Component {
             [name]: value
         })
 
-        if(name === 'radius') {
+        if (name === 'radius') {
             this.props.getHotelsAround(this.props.api.user_geo_location, value);
         }
     };
+
+    saveLastAddressToLocalStorage = () => {
+        // Save address to local storage
+        let tempArray = this.state.lastSearches;
+        if (!tempArray.includes(this.state.address)) {
+            tempArray.unshift(this.state.address);
+            this.setState({
+                lastSearches: tempArray
+            });
+            sessionStorage.setItem('lastSearches', JSON.stringify(this.state.lastSearches));
+            console.log(this.state.lastSearches)
+        }
+    }
     formatAddress = () => {
-        this.setState({
-            formattedAddress: this.state.address.replace(/([^a-zA-Z0-9\s])/g, " ").toLocaleLowerCase().trim().split(' ').join('+')
-        })
+        this.saveLastAddressToLocalStorage()
+        return this.state.address.replace(/([^a-zA-Z0-9\s])/g, " ").toLocaleLowerCase().trim().split(' ').join('+')
     }
     detectHotels = (e) => {
-        e.preventDefault()
-        this.formatAddress()
-        console.log(this.state.formattedAddress)
-    }
+        e.preventDefault();
+        const formattedAddress = this.formatAddress();
+        if (formattedAddress.includes('+')) {
+            this.props.getHotelsAroundBasedOnLocation(formattedAddress, this.state.radius)
+        }
+    };
 
-    changeSearchRadius = (e) => {
-
+    copyAddressToState = (e) => {
+        let address = e.target.innerHTML
+        this.setState({
+            address: address
+        })
     }
 
     render() {
@@ -73,11 +88,19 @@ class SearchForm extends Component {
                 </form>
                 {
                     this.props.api.address ? (
-                        <p style={{fontSize: 12}}>Your address is: <br/><strong>{this.props.api.address}</strong>
+                        <p style={{fontSize: 12}}>Current searched
+                            Address: <br/><strong>{this.props.api.address}</strong>
                         </p>) : ''
                 }
                 <hr/>
-                <h3>Last Searches</h3>
+                <div className="last-searches-wrapper">
+                    <h3>Last Searches</h3>
+                    <small>click on address to copy to the search field</small>
+                    {
+                        this.state.lastSearches.length > 0 ? this.state.lastSearches.map((address, i) => <div onClick={(e) => this.copyAddressToState(e)}
+                        >{address}</div>) : ""
+                    }
+                </div>
             </section>
         )
     }
@@ -89,7 +112,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getLocation: (address) => dispatch(getLocation(address)),
-    getHotelsAround: (address, radius) => dispatch(getHotelsAround(address, radius))
+    getHotelsAround: (address, radius) => dispatch(getHotelsAround(address, radius)),
+    getHotelsAroundBasedOnLocation: (address, radius) => dispatch(getHotelsAroundBasedOnLocation(address, radius))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
 

@@ -66,6 +66,7 @@
 
 .App > main section:nth-child(2) {
     flex: 0 1 75%;
+    position: relative;
 }
 
 .App > footer {

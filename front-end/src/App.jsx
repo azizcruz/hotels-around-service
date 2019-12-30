@@ -5,7 +5,8 @@ import Header from './components/Header/Header'
 import SearchForm from './components/SearchForm/SearchForm'
 import Footer from './components/Footer/Footer'
 import MapContainer from "./components/MapContainer/MapContainer";
-import Recommendations from "./components/Recommendations/Recommendations";
+import Recommendations from "./components/Hotels/Hotels";
+import About from "./components/About/About"
 // Redux Imports
 import {connect} from 'react-redux';
 import {getLocation} from './actions/api_actions';
@@ -24,7 +25,8 @@ class App extends Component {
                 <section>
                     <Switch>
                         <Route exact path='/' component={MapContainer} />
-                        <Route path='/recommendations' component={Recommendations}/>
+                        <Route path='/hotels' component={Recommendations}/>
+                        <Route path='/about' component={About}/>
                     </Switch>
                 </section>
             </main>

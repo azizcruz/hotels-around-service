@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import {HEREMap} from 'here-maps-react';
+import {Circle, HereMap, Marker} from 'rc-here-maps';
 import {geolocated} from "react-geolocated";
 import {connect} from 'react-redux';
-import {getLocation, getHotelsAround} from "./../../actions/api_actions";
+import {getHotelsAround, getLocation} from "./../../actions/api_actions";
 import "./styles/styles.css"
 
 
@@ -12,19 +12,26 @@ class MapContainer extends Component {
         this.state = {
             showMarker: false,
             center: {
-                lat: '',
-                lng: ''
+                lat: 0,
+                lng: 0
             },
-            counter: 0
-        }
+            counter: 0,
+            delayLoading: true
+        };
+        this.bounds = {
+            north: 53.1,
+            south: 13.1,
+            east: 43.1,
+            west: 40.1,
+        };
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         // Set geolocation data.
         if (this.props.coords) {
             const geolocation = {
-                latitude: this.props.coords.latitude,
-                longitude: this.props.coords.longitude
+                latitude: parseFloat(this.props.coords.latitude).toFixed(3),
+                longitude: parseFloat(this.props.coords.longitude).toFixed(3)
             };
             this.state.counter += 1;
             if (this.state.counter === 1) {
@@ -39,12 +46,19 @@ class MapContainer extends Component {
         // Set geolocation data into the map.
         if (this.props.api.user_geo_location) {
             const geolocation = this.props.api.user_geo_location.split(',');
-            if (this.state.counter === 3) {
+            console.log(this.state.counter)
+            if (this.state.counter === 3 || this.state.counter === 4 || this.props.api.user_geo_location !== prevProps.api.user_geo_location) {
                 this.setState({
                     center: {
                         lat: parseFloat(geolocation[0]).toFixed(3),
-                        lng: parseFloat(geolocation[1]).toFixed(3)
+                        lng: parseFloat(geolocation[1]).toFixed(3),
                     }
+                }, () => {
+                    setTimeout(() => {
+                        this.setState({
+                            delayLoading: false
+                        })
+                    }, 1000)
                 })
             }
         }
@@ -53,20 +67,45 @@ class MapContainer extends Component {
     render() {
         return (
             <React.Fragment>
-                <HEREMap
+                {
+                    this.props.api.loading || this.state.delayLoading ? (
+                        <div className={"map-overlay"}>
+                            <div className="loadingspinner"></div>
+                            {(!this.props.coords && this.props.positionError && this.props.positionError.code === 1) ?
+                                <small style={{color: "#FFFFFF", marginLeft: 8}}>You did not allow for auto address detection, please provide an address</small> : ""}
+                        </div>) : ""
+                }
+                <HereMap
                     appId="6zAybFJVF3qz0C0oZS6l"
                     appCode="l1xIvTZbBiwqcuArZpErZw"
                     center={{...this.state.center}}
-                    zoom={18}
-                    interactive={true}
-                    hidpi={true}
+                    zoom={15}
+
                 >
 
-                    {/*<Marker {...this.state.center}>*/}
-                    {/*    <div className='pin'></div>*/}
-                    {/*    <div className='pulse'></div>*/}
-                    {/*</Marker>*/}
-                </HEREMap>
+
+                    <Marker lat={this.state.center.lat} lng={this.state.center.lng}>
+                        <div className='pin'></div>
+                        <div className='pulse'></div>
+                    </Marker>
+
+                    <Circle
+                        center={{...this.state.center}}
+                        radius={this.props.api.radius}
+                        fillColor="#d8161638"
+                        strokeColor="#EEE"
+                    />
+
+                    {this.props.api.hotels.length > 0 ? (
+                        this.props.api.hotels.map((hotel, i) =>
+                            (<Marker lat={hotel.position[0]} lng={hotel.position[1]} key={i}>
+                                <img src={hotel.icon}/>
+                                <small>{hotel.hotel_name}</small>
+                            </Marker>)
+                        )
+                    ) : ("")}
+                </HereMap>
+                {console.log(this.props)}
             </React.Fragment>
         )
     }
@@ -82,7 +121,7 @@ const mapDispatchToProps = dispatch => ({
 
 export default geolocated({
     positionOptions: {
-        enableHighAccuracy: false,
+        enableHighAccuracy: true,
     },
-    userDecisionTimeout: 5000,
+    userDecisionTimeout: 5000
 })(connect(mapStateToProps, mapDispatchToProps)(MapContainer))

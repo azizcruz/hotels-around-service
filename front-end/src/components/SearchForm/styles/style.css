@@ -56,3 +56,32 @@ button:active {
 button:focus {
     outline: none;
 }
+
+.last-searches-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.last-searches-wrapper div {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #EEEEEE;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.last-searches-wrapper h3 {
+    margin: 4px;
+}
+
+.last-searches-wrapper small {
+    font-size: 8px;
+    color: #757575;
+    margin-bottom: 10px;
+}
+
+.last-searches-wrapper div:active {
+    background-color: #454545;
+    color: white;
+}

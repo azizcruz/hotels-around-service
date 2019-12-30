@@ -1,6 +1,5 @@
 // actions needed libraries
 import axios from 'axios'
-import {geolocated} from "react-geolocated";
 
 // Api actions are defined here
 export const getLocation = (address) => dispatch => {
@@ -26,21 +25,42 @@ export const getLocation = (address) => dispatch => {
 };
 
 export const getHotelsAround = (geolocation, radius) => dispatch => {
-    console.log('yes')
     dispatch({
             type: 'GET_HOTELS_REQUEST',
             payload: 'hotels around request.'
         });
     axios.get(`http://127.0.0.1:8000/api/hotels_around/get/${geolocation}/${radius}`).then(res => {
-        console.log(res)
         dispatch({
             type: 'GET_HOTELS_SUCCESS',
-            payload: res.data
+            payload: res.data,
+            radius: radius
         })
     }).catch(err => {
         console.log(err);
         dispatch({
             type: 'GET_HOTELS_FAIL',
+            payload: 'request to hotels around failed.'
+        })
+    })
+};
+
+export const getHotelsAroundBasedOnLocation = (address, radius) => dispatch => {
+    console.log(address)
+    dispatch({
+            type: 'GET_HOTELS_BASED_ON_ADDRESS_REQUEST',
+            payload: 'hotels around request.'
+        });
+    axios.get(`http://127.0.0.1:8000/api/hotels_around_based_on_address/get/${address}/${radius}`).then(res => {
+        console.log(res)
+        dispatch({
+            type: 'GET_HOTELS_BASED_ON_ADDRESS_SUCCESS',
+            payload: res.data,
+            radius: radius
+        })
+    }).catch(err => {
+        console.log(err);
+        dispatch({
+            type: 'GET_HOTELS_BASED_ON_ADDRESS_FAIL',
             payload: 'request to hotels around failed.'
         })
     })
