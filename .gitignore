@@ -27,5 +27,5 @@ yarn-error.log*
 pycache
 *.pyc
 ./gitignore
-./idea
+.idea
 virtualenv
