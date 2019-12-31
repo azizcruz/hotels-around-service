@@ -37,7 +37,7 @@ class MapContainer extends Component {
             if (this.state.counter === 1) {
                 this.props.getLocation(`${geolocation.latitude},${geolocation.longitude}`);
                 // call the action to get hotels around address.
-                this.props.getHotelsAround(`${geolocation.latitude},${geolocation.longitude}`, 500);
+                this.props.getHotelsAround(`${geolocation.latitude},${geolocation.longitude}`, this.props.api.radius);
                 this.setState({
                     showMark: true
                 })
@@ -46,7 +46,6 @@ class MapContainer extends Component {
         // Set geolocation data into the map.
         if (this.props.api.user_geo_location) {
             const geolocation = this.props.api.user_geo_location.split(',');
-            console.log(this.state.counter)
             if (this.state.counter === 3 || this.state.counter === 4 || this.props.api.user_geo_location !== prevProps.api.user_geo_location) {
                 this.setState({
                     center: {
@@ -84,7 +83,7 @@ class MapContainer extends Component {
                 >
 
 
-                    <Marker lat={this.state.center.lat} lng={this.state.center.lng}>
+                    <Marker lat={parseFloat(this.state.center.lat)} lng={parseFloat(this.state.center.lng)}>
                         <div className='pin'></div>
                         <div className='pulse'></div>
                     </Marker>
@@ -105,7 +104,6 @@ class MapContainer extends Component {
                         )
                     ) : ("")}
                 </HereMap>
-                {console.log(this.props)}
             </React.Fragment>
         )
     }
