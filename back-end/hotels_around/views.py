@@ -1,9 +1,10 @@
 import requests
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.db import IntegrityError
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .utils.format_response_json_data import format_response_json_data, format_address
-
+from .models import ClientCountry
 
 class GetUserLocation(APIView):
     '''
@@ -19,6 +20,8 @@ class GetUserLocation(APIView):
         location = request.data.get('geolocation', None)
         if not location:
             Response({'error': 'sorry, something went wrong'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # To gather data about users from which countries are using the app.
 
         try:
             url = f"https://places.sit.ls.hereapi.com/places/v1/browse?app_id=rBwpW3TqbDh1ywZ0IMCV&apiKey=AAo51Nl1VI0V34sBNx6OOxj4Lx08ZePDf84GDkQiC_k&" \
@@ -36,9 +39,17 @@ class GetUserLocation(APIView):
                 'geolocation': location
             }
 
-            return Response(payload, status=status.HTTP_200_OK)
         except:
             return Response({'error': 'Adderess does not exist'}, status=status.HTTP_404_NOT_FOUND)
+        finally:
+
+            try:
+                ClientCountry.objects.create(country=country)
+            except IntegrityError as e:
+                if "UNIQUE constraint" in e.args[0]:
+                    # do nothing
+                    pass
+            return Response(payload, status=status.HTTP_200_OK)
 
 
 class GetHotelsAroundLocation(APIView):
