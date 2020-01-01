@@ -16,7 +16,7 @@ $ cd back-end/
 
 * we are using virtualenv to create a virtual environment, run the following command to create one
 ```shell
-$ virtualenv -p python3 virtualenv; source virtualenv/bin/activate
+$ virtualenv -p python3 virtualenv; source virtualenv/bin/activate; pip install -r requirments.txt; python manage.py runserver
 ```
 
 * Open a new terminal tab in the same directory and run
