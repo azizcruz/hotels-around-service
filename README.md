@@ -35,3 +35,10 @@ Now you can use the app.
 Username: limehome
 Password: 1234
 and log in then a page with the data available will be returned.
+
+## Run tests
+currently the tests are only in the backend, you can run them using the following.
+first navigate to the base of the project directory then run.
+```shell
+$ cd backend; python manage.py test
+```
