@@ -76,8 +76,7 @@ coverage.xml
 docs/_build/
 
 # PyBuilder
-target/
-
+target
 
 ### Django ###
 *.log
@@ -87,7 +86,6 @@ __pycache__/
 local_settings.py
 
 .env
-db.sqlite3
 
 virtualenv/
 .idea/

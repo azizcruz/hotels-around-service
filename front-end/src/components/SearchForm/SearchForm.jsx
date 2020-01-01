@@ -97,8 +97,8 @@ class SearchForm extends Component {
                     <h3>Last Searches</h3>
                     <small>click on address to copy to the search field</small>
                     {
-                        this.state.lastSearches.length > 0 ? this.state.lastSearches.map((address, i) => <div onClick={(e) => this.copyAddressToState(e)}
-                        >{address}</div>) : ""
+                        this.state.lastSearches.length > 0 ? this.state.lastSearches.map((address, i) => <div key={i} onClick={(e) => this.copyAddressToState(e)}
+                        >{address}</div>) : <p>You have no last searches</p>
                     }
                 </div>
             </section>

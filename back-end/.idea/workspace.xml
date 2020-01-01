@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75e19dc3-d62d-46d3-a760-aa34396f99b7" name="Default Changelist" comment="" />
+    <list default="true" id="75e19dc3-d62d-46d3-a760-aa34396f99b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/actions/api_actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/actions/api_actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/components/SearchForm/SearchForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/SearchForm/SearchForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/variables.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/variables.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +86,8 @@
       <updated>1577819569889</updated>
       <workItem from="1577819572041" duration="1067000" />
       <workItem from="1577821712066" duration="1395000" />
+      <workItem from="1577881330026" duration="170000" />
+      <workItem from="1577889526112" duration="354000" />
     </task>
     <servers />
   </component>

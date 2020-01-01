@@ -1,13 +1,13 @@
 // actions needed libraries
 import axios from 'axios'
-
+import {baseURL} from "../variables";
 // Api actions are defined here
 export const getLocation = (address) => dispatch => {
     dispatch({
                 type: 'GET_LOCATION_REQUEST',
                 payload: 'request location'
             })
-    axios.post(`http://127.0.0.1:8000/api/user_location/get`, {geolocation: address}).then(res => {
+    axios.post(`${baseURL}/api/user_location/get`, {geolocation: address}).then(res => {
             let address = res.data.address;
             dispatch({
                 type: 'GET_LOCATION_SUCCESS',
@@ -29,7 +29,7 @@ export const getHotelsAround = (geolocation, radius) => dispatch => {
             type: 'GET_HOTELS_REQUEST',
             payload: 'hotels around request.'
         });
-    axios.get(`http://127.0.0.1:8000/api/hotels_around/get/${geolocation}/${radius}`).then(res => {
+    axios.get(`${baseURL}/api/hotels_around/get/${geolocation}/${radius}`).then(res => {
         dispatch({
             type: 'GET_HOTELS_SUCCESS',
             payload: res.data,
@@ -45,13 +45,11 @@ export const getHotelsAround = (geolocation, radius) => dispatch => {
 };
 
 export const getHotelsAroundBasedOnLocation = (address, radius) => dispatch => {
-    console.log(address)
     dispatch({
             type: 'GET_HOTELS_BASED_ON_ADDRESS_REQUEST',
             payload: 'hotels around request.'
         });
-    axios.get(`http://127.0.0.1:8000/api/hotels_around_based_on_address/get/${address}/${radius}`).then(res => {
-        console.log(res)
+    axios.get(`${baseURL}/api/hotels_around_based_on_address/get/${address}/${radius}`).then(res => {
         dispatch({
             type: 'GET_HOTELS_BASED_ON_ADDRESS_SUCCESS',
             payload: res.data,
