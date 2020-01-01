@@ -11,7 +11,7 @@ $ git clone https://github.com/azizcruz/hotels-around-service.git .
 
 * navigate to backend
 ```shell
-$ cd backend/
+$ cd back-end/
 ```
 
 * we are using virtualenv to create a virtual environment, run the following command to create one
