@@ -20,6 +20,9 @@ $ virtualenv -p python3 virtualenv; source virtualenv/bin/activate
 ```
 
 * install the content of requirements.txt and run server
+```shell
+$ pip install -r requirements.txt; python manage.py runserver
+```
 
 
 * Open a new terminal tab in the same directory and run
