@@ -21,7 +21,7 @@ $ virtualenv -p python3 virtualenv; source virtualenv/bin/activate
 
 * Open a new terminal tab in the same directory and run
 ```shell
-$ cd ..; cd frontend; npm install; npm start
+$ cd ..; cd front-end; npm install; npm start
 ```
 
 * Open your browser and paste http://localhost:3000
