@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75e19dc3-d62d-46d3-a760-aa34396f99b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotels_around/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotels_around/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotels_around/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotels_around/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotels_around/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hotels_around/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="75e19dc3-d62d-46d3-a760-aa34396f99b7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
