@@ -27,7 +27,7 @@ $ pip install -r requirements.txt; python manage.py runserver
 
 * Open a new terminal tab in the same directory and run
 ```shell
-$ cd ..; cd front-end; npm install; npm start
+$ cd front-end; npm install; npm start
 ```
 
 * Open your browser and paste http://localhost:3000
