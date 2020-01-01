@@ -47,3 +47,4 @@ first navigate to the base of the project directory then run.
 ```shell
 $ cd backend; python manage.py test
 ```
+
