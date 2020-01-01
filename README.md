@@ -14,7 +14,7 @@ $ git clone https://github.com/azizcruz/hotels-around-service.git .
 $ cd back-end/
 ```
 
-* we are using virtualenv to create a virtual environment, run the following command to create one
+* we are using virtualenv to create a virtual environment, run the following command to create one and then run server
 ```shell
 $ virtualenv -p python3 virtualenv; source virtualenv/bin/activate; pip install -r requirments.txt; python manage.py runserver
 ```
