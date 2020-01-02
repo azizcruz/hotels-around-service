@@ -5,31 +5,34 @@ import Header from './components/Header/Header'
 import SearchForm from './components/SearchForm/SearchForm'
 import Footer from './components/Footer/Footer'
 import MapContainer from "./components/MapContainer/MapContainer";
-import Recommendations from "./components/Hotels/Hotels";
+import Hotels from "./components/Hotels/Hotels";
 import About from "./components/About/About"
 // Redux Imports
 import {connect} from 'react-redux';
 import {getLocation} from './actions/api_actions';
 
-import {Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 class App extends Component {
 
     render() {
         return (<div className="App">
-            <Header/>
-            <main>
-                <section>
-                    <SearchForm/>
-                </section>
-                <section>
-                    <Switch>
-                        <Route exact path='/' component={MapContainer} />
-                        <Route path='/hotels' component={Recommendations}/>
-                        <Route path='/about' component={About}/>
-                    </Switch>
-                </section>
-            </main>
+            <Router>
+                <Header/>
+                <main>
+                    <section>
+                        <SearchForm/>
+                    </section>
+
+                    <section>
+                        <Switch>
+                            <Route exact path='/' component={MapContainer}/>
+                            <Route path='/hotels' component={Hotels}/>
+                            <Route path='/about' component={About}/>
+                        </Switch>
+                    </section>
+                </main>
+            </Router>
             <Footer/>
         </div>)
     }

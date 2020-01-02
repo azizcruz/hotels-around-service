@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75e19dc3-d62d-46d3-a760-aa34396f99b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/src/actions/api_actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/actions/api_actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/components/SearchForm/SearchForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/SearchForm/SearchForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/src/variables.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/variables.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,7 +89,8 @@
       <workItem from="1577819572041" duration="1067000" />
       <workItem from="1577821712066" duration="1395000" />
       <workItem from="1577881330026" duration="170000" />
-      <workItem from="1577889526112" duration="354000" />
+      <workItem from="1577889526112" duration="815000" />
+      <workItem from="1577900303160" duration="1991000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,7 @@ export const getLocation = (address) => dispatch => {
                 type: 'GET_LOCATION_REQUEST',
                 payload: 'request location'
             })
-    axios.post(`${baseURL}/api/user_location/get`, {geolocation: address}).then(res => {
+    axios.post(`${baseURL}api/user_location/get`, {geolocation: address}).then(res => {
             let address = res.data.address;
             dispatch({
                 type: 'GET_LOCATION_SUCCESS',
@@ -29,7 +29,7 @@ export const getHotelsAround = (geolocation, radius) => dispatch => {
             type: 'GET_HOTELS_REQUEST',
             payload: 'hotels around request.'
         });
-    axios.get(`${baseURL}/api/hotels_around/get/${geolocation}/${radius}`).then(res => {
+    axios.get(`${baseURL}api/hotels_around/get/${geolocation}/${radius}`).then(res => {
         dispatch({
             type: 'GET_HOTELS_SUCCESS',
             payload: res.data,
@@ -49,7 +49,7 @@ export const getHotelsAroundBasedOnLocation = (address, radius) => dispatch => {
             type: 'GET_HOTELS_BASED_ON_ADDRESS_REQUEST',
             payload: 'hotels around request.'
         });
-    axios.get(`${baseURL}/api/hotels_around_based_on_address/get/${address}/${radius}`).then(res => {
+    axios.get(`${baseURL}api/hotels_around_based_on_address/get/${address}/${radius}`).then(res => {
         dispatch({
             type: 'GET_HOTELS_BASED_ON_ADDRESS_SUCCESS',
             payload: res.data,
